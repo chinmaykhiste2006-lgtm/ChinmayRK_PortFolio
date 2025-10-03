@@ -1,0 +1,560 @@
+/* ===== Reset and General Styles ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f0f0f;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.page-wrapper {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.page-wrapper.visible {
+    opacity: 1;
+}
+
+
+/* ===== Navbar (UPDATED for Achievements Link) ===== */
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(15, 15, 15, 0.9);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    font-size: 26px;
+    background: linear-gradient(90deg, #00f, #0ff);
+    background-clip: text;
+    color: transparent;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #bbb;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #0ff;
+}
+
+
+/* ===== Sections ===== */
+
+section {
+    min-height: 100vh;
+    padding: 140px 10% 80px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #0ff;
+}
+
+section p {
+    font-size: 18px;
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+
+/* ===== Home (UPDATED STYLES) ===== */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.home img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid #0ff;
+    margin-bottom: 30px;
+    transition: 0.4s;
+}
+
+.home img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #0ff;
+}
+
+.home h2 {
+    margin-bottom: 20px;
+}
+
+
+/* --- SKILLS SECTION (FINAL FIX for spacing and divider) --- */
+
+.skills-summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px 0;
+    max-width: 1000px;
+    margin-top: 30px;
+    padding: 0 20px;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.skill-item {
+    padding: 0 10px;
+    border: none;
+    background: none;
+    color: #ccc;
+    font-weight: 400;
+    cursor: default;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Base divider rule: Applies the divider to ALL items except the last one */
+
+.skill-item:not(:last-child)::after {
+    content: '|';
+    color: #0ff;
+    font-weight: 100;
+    font-size: 1.2em;
+    padding-left: 20px;
+}
+
+
+/* 1. RULE TO REMOVE DIVIDER AFTER THE SECOND SKILL ITEM (OOP) */
+
+.skill-item#special::after {
+    content: none !important;
+}
+
+
+/* 2. SPACING FIX: Add margin to the right of the 2nd item to keep the visual gap. */
+
+.skill-item#special {
+    margin-right: 20px !important;
+}
+
+
+/* 3. RULE TO KEEP DIVIDER AFTER THE THIRD ITEM (WD) */
+
+
+/* The base rule :not(:last-child) handles this automatically IF the layout doesn't wrap. 
+   If it wraps to 2 lines (2x2), we need to ensure the base rule applies to item 3, which it does.
+   However, we need to reset any margin from the previous item's fix.
+*/
+
+.skill-item:nth-child(3) {
+    margin-right: 0 !important;
+    /* Ensures this item starts cleanly and uses the default divider rule */
+}
+
+
+/* --- Accent Colors (Based on your last input) --- */
+
+.skill-item:nth-child(even) {
+    color: #ffffff;
+    /* Reverting back to Yellow for contrast */
+}
+
+.skill-item:nth-child(odd) {
+    color: rgb(255, 255, 255);
+    /* Reverting back to Cyan for contrast */
+}
+
+
+/* For the item with the ID "special", we can make it a specific color if desired */
+
+#special {
+    color: #ffffff;
+}
+
+#special:hover {
+    color: #85fff3;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+}
+
+.skill-item:hover {
+    color: #d2fffa;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 1);
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 100px;
+    padding: 15px 35px;
+    background: #0ff;
+    color: #000;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #0ff;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: transparent;
+    color: #0ff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+
+/* ===== About & Achievements Timeline Styling (Inherited and Existing) ===== */
+
+#about,
+#achievements {
+    /* Achievements inherits all About styles */
+    padding: 100px 10%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#about h2,
+#achievements h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 32px;
+    color: #0ff;
+}
+
+
+/* ... rest of timeline styles are fine ... */
+
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: #0ff;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px;
+}
+
+.timeline-card {
+    background: rgba(20, 20, 20, 0.9);
+    border: 2px solid rgba(0, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    color: #ddd;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.timeline-card h3 {
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    border-color: #0ff;
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0ff;
+    border: 3px solid #111;
+    z-index: 1;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.left::before {
+    right: -9px;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item.right::before {
+    left: -9px;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 5px;
+    color: #FFA116;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.text-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFA116;
+}
+
+.text-link:hover {
+    color: #ffc266;
+    text-decoration: none;
+    transform: scale(1.01);
+    transition-timing-function: ease;
+    transition-delay: 10ms;
+}
+
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        text-align: left;
+    }
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+    }
+    .timeline-item::before {
+        left: 11px;
+    }
+}
+
+
+/* ===== Projects (No Change) ===== */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: rgba(20, 20, 20, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    border: 2px solid #0ff;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #0ff;
+}
+
+.card p {
+    color: #bbb;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card video {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #0ff;
+    color: #000;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.card a:hover {
+    background: #00a;
+    color: #fff;
+}
+
+.tech-badges span {
+    display: inline-block;
+    margin: 5px 5px;
+    padding: 5px 12px;
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+
+/* ===== Technologies (No Change) ===== */
+
+.tech-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.tech-card {
+    background: rgba(20, 20, 20, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 50px 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+    transition: 0.4s;
+}
+
+.tech-card:hover {
+    border: 2px solid #0ff;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.tech-card img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 20px;
+}
+
+.tech-card p {
+    color: #bbb;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/* ===== Contact (No Change) ===== */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+}
+
+.socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+}
+
+.socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    transition: 0.3s;
+}
+
+.socials a img {
+    width: 100%;
+    height: 100%;
+}
+
+.socials a:hover {
+    transform: scale(1.2);
+}
+
+
+/* ===== Responsive (No Change) ===== */
+
+@media screen and (max-width: 900px) {
+    .tech-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tech-cards {
+        grid-template-columns: 1fr;
+    }
+    .skills-summary {
+        padding: 0 10px;
+        font-size: 1.1em;
+    }
+    .skill-item:not(:last-child)::after {
+        padding-left: 10px;
+    }
+    .skill-item {
+        padding: 0 5px;
+    }
+}
