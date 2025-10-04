@@ -16,11 +16,14 @@ body {
 
 .page-wrapper {
     opacity: 0;
-    transition: opacity 1.5s ease;
+    visibility: hidden;
+    transition: opacity 1.5s ease, visibility 0s linear 1.5s;
 }
 
 .page-wrapper.visible {
     opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
 }
 
 
@@ -42,7 +45,7 @@ header {
 
 header h1 {
     font-size: 26px;
-    background: linear-gradient(90deg, #00f, #0ff);
+    background: linear-gradient(90deg, rgb(95, 81, 244), rgb(208, 249, 255));
     background-clip: text;
     color: transparent;
 }
@@ -82,7 +85,7 @@ section.visible {
 
 section h2 {
     font-size: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     color: #0ff;
 }
 
@@ -91,6 +94,10 @@ section p {
     color: #ccc;
     line-height: 1.8;
     margin-bottom: 20px;
+}
+
+#info {
+    padding-top: 20px;
 }
 
 
@@ -108,7 +115,7 @@ section p {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    border: 3px solid #0ff;
+    border: 3px solid rgb(0, 0, 0);
     margin-bottom: 30px;
     transition: 0.4s;
 }
@@ -211,12 +218,12 @@ section p {
 }
 
 #special:hover {
-    color: #85fff3;
+    color: #2de5ec;
     text-shadow: 0 0 5px rgba(255, 255, 255, 1);
 }
 
 .skill-item:hover {
-    color: #d2fffa;
+    color: #2de5ec;
     text-shadow: 0 0 5px rgba(255, 255, 255, 1);
 }
 
@@ -234,10 +241,34 @@ section p {
     transition: all 0.3s ease;
 }
 
+.cta-button1 {
+    display: inline-block;
+    margin-top: 70px;
+    padding: 15px 35px;
+    background: rgb(3, 3, 3);
+    color: #d8f6f5;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #0ff;
+    transition: all 0.3s ease;
+    transform: scale(1.00);
+    transition-timing-function: ease-in;
+}
+
 .cta-button:hover {
     background: transparent;
     color: #0ff;
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+.cta-button1:hover {
+    background: transparent;
+    color: #0ff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    transform: scale(1.05);
+    transition-timing-function: ease-in;
 }
 
 
@@ -428,6 +459,12 @@ section p {
 }
 
 .card video {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.card #image12 {
     width: 100%;
     border-radius: 10px;
     margin: 15px 0;
