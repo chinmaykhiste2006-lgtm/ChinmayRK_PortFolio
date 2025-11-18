@@ -14,8 +14,8 @@ body {
     scroll-behavior: smooth;
 }
 
-<<<<<<< HEAD
-=======
+
+
 .page-wrapper {
     opacity: 0;
     visibility: hidden;
@@ -28,7 +28,7 @@ body {
     transition-delay: 0s;
 }
 
->>>>>>> d3e141d3c38bb62920a3410d4b88dc17bf44aabe
+
 
 /* ===== Navbar (UPDATED for Achievements Link) ===== */
 
@@ -597,8 +597,7 @@ section p {
     .skill-item {
         padding: 0 5px;
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> d3e141d3c38bb62920a3410d4b88dc17bf44aabe
+
+

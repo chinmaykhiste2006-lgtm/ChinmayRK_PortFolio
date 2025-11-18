@@ -45,8 +45,8 @@ const observer = new IntersectionObserver((entries, obs) => {
 }, { threshold: 0.2 });
 sections.forEach(sec => observer.observe(sec));
 
-<<<<<<< HEAD
+
 document.getElementById("special").style.padding = 0;
-=======
+
 document.getElementById("special").style.padding = 0;
->>>>>>> d3e141d3c38bb62920a3410d4b88dc17bf44aabe
+
