@@ -1,6 +1,7 @@
 // Page load fade-in
 // Check if the browser supports the scroll restoration feature
 
+//first commit
 
 window.addEventListener("load", () => {
     setTimeout(() => {
