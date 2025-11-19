@@ -52,10 +52,6 @@ const observer = new IntersectionObserver(
 
 sections.forEach(section => observer.observe(section));
 
-// ---------------------------
-// SPECIAL ELEMENT FIX
-// ---------------------------
-
 const special = document.getElementById("special");
 if (special) {
     special.style.padding = "0";
